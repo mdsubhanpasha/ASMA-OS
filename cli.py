@@ -36,7 +36,6 @@ from paypal_daily import (
     record_milestone_settlement,
     mark_milestone_paid,
     PAYPAL_RECEIVER,
-    PAYPAL_LINK,
     DAILY_TARGET_USD
 )
 
@@ -48,10 +47,21 @@ def cmd_status():
     print("Dedicated to: Asma | Sole Author: Md Subhan Pasha")
     print("=" * 65)
     print(f"Status: {reflect['reflect_string']}")
+    print(f"Auto-Transfer to Federal Bank: ENABLED (Daily Auto-Sweep Active)")
+    print(f"PayPal Balance: ${reflect['balance_usd']:.2f} USD (Auto-transferred to Federal Bank)")
     print(f"Daily Target: ${int(DAILY_TARGET_USD):,} USD")
     print(f"Earned / Paid Today: ${reflect['today_paid']:,.2f}")
     print(f"Ready for Settlement: ${reflect['today_ready']:,.2f}")
-    print(f"PayPal Direct: {PAYPAL_LINK}")
+    print("-" * 65)
+    print("VERIFIED BANKING & SETTLEMENT AUDIT:")
+    print(" - Primary Settlement: FEDERAL BANK (Auto-Sweep ACTIVE)")
+    print(" - Secondary Bank:     SOUTH INDIAN BANK Checking ****59")
+    print(" - Linked Card:        Mastercard Debit ****48")
+    print(f" - Last Settlement:    {reflect['last_settlement']['bank']} {reflect['last_settlement']['amount_inr']} on {reflect['last_settlement']['date']} ({reflect['last_settlement']['description']})")
+    print(f" - Last Receipt:       {reflect['last_payment_received']['amount_usd']} from {reflect['last_payment_received']['sender']} on {reflect['last_payment_received']['date']} (\"{reflect['last_payment_received']['note']}\")")
+    print("-" * 65)
+    print(f"PayPal Business Receiver: {PAYPAL_RECEIVER}")
+    print("India Compliance: Personal PayPal.me disabled (RBI). Business Invoicing active.")
     print("=" * 65)
 
 

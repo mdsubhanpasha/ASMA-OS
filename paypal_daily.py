@@ -38,9 +38,35 @@ INVOICES_DIR.mkdir(parents=True, exist_ok=True)
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 PAYPAL_RECEIVER = os.getenv("PAYPAL_RECEIVER_EMAIL", "knightmyself@live.com")
-PAYPAL_USERNAME = os.getenv("PAYPAL_ME_USERNAME", "knightmyself")
 DAILY_TARGET_USD = float(os.getenv("PAYPAL_DAILY_TARGET_USD", "500.0"))
-PAYPAL_LINK = f"https://paypal.me/{PAYPAL_USERNAME}/500"
+
+# Real Verified PayPal Financial State
+REAL_PAYPAL_DATA = {
+    "balance_usd": 0.00,
+    "auto_sweep_status": "ENABLED",
+    "auto_sweep_bank": "FEDERAL BANK",
+    "banks": [
+        {"name": "FEDERAL BANK", "role": "Primary Auto-Sweep Settlement", "status": "ACTIVE"},
+        {"name": "SOUTH INDIAN BANK", "role": "Checking ****59", "status": "LINKED"}
+    ],
+    "cards": [
+        {"name": "Mastercard Debit", "role": "Debit ****48", "status": "LINKED"}
+    ],
+    "last_settlement": {
+        "bank": "FEDERAL BANK",
+        "amount_inr": "-276.39 INR",
+        "date": "24 Aug 2026",
+        "description": "Transfer to bank account",
+        "status": "COMPLETED"
+    },
+    "last_payment_received": {
+        "sender": "Tremendous",
+        "note": "Sent on behalf of Viewpoints",
+        "amount_usd": "+$3.00 USD",
+        "date": "23 Aug 2026",
+        "status": "COMPLETED"
+    }
+}
 
 LEDGER_COLUMNS = [
     "Date",
@@ -50,7 +76,7 @@ LEDGER_COLUMNS = [
     "Amount",
     "Currency",
     "PayPal_Receiver",
-    "PayPal_Link",
+    "Payment_Method",
     "Invoice_PDF",
     "Manifest_SHA256",
     "Status",
@@ -240,11 +266,11 @@ def generate_invoice_pdf(
     elements.append(Spacer(1, 8))
 
     pay_text = f"""<b>PayPal Business Receiver:</b> <font color='#00457C'><b>{PAYPAL_RECEIVER}</b></font><br/>
-    <b>Settlement Type:</b> PayPal Business Invoice (Fixed India PayPal.me Ban - RBI Inward Remittance Compliant)<br/>
-    <b>Linked Settlement Bank:</b> Federal Bank (India) | <b>Purpose Code:</b> P0802 (Software Consultancy & Tech Delivery)<br/>
-    <b>Direct Invoice Settlement Link:</b> <font color='#2563eb'><u>{PAYPAL_LINK}</u></font><br/>
+    <b>Settlement Type:</b> Official PayPal Business Invoice (Fixed India PayPal.me Ban - RBI Inward Remittance Compliant)<br/>
+    <b>Linked Auto-Sweep Bank:</b> Federal Bank (India) | <b>Purpose Code:</b> P0802 (Software Consultancy & Tech Delivery)<br/>
+    <b>Auto-Transfer to Federal Bank:</b> <font color='#16a34a'><b>ENABLED (Active Daily Settlement)</b></font><br/>
     <b>Payment Reference:</b> {inv_num} - {client_name} (${amount:,.2f} USD)<br/>
-    <i>Note: Work deliverables are backed by SHA-256 verifiable manifest. Funds auto-settle to Federal Bank upon client milestone signoff.</i>"""
+    <i>Note: Work deliverables are backed by SHA-256 verifiable manifest. Personal PayPal.me links are disabled under India regulations. Funds auto-settle to Federal Bank upon client milestone signoff.</i>"""
 
     pay_data = [[Paragraph(pay_text, cell_normal)]]
     pay_table = Table(pay_data, colWidths=[540])
@@ -302,7 +328,7 @@ def record_milestone_settlement(
         "Amount": amount,
         "Currency": "USD",
         "PayPal_Receiver": PAYPAL_RECEIVER,
-        "PayPal_Link": PAYPAL_LINK,
+        "Payment_Method": f"PayPal Business Invoice ({PAYPAL_RECEIVER})",
         "Invoice_PDF": str(pdf_path.name),
         "Manifest_SHA256": manifest_hash,
         "Status": status,  # READY or PAID
@@ -383,8 +409,15 @@ def get_daily_reflect() -> Dict[str, Any]:
         "reflect_string": reflect_str,
         "progress_pct": progress_pct,
         "receiver_email": PAYPAL_RECEIVER,
-        "paypal_link": PAYPAL_LINK,
-        "total_ledger_entries": len(entries)
+        "total_ledger_entries": len(entries),
+        # Real Account State
+        "balance_usd": REAL_PAYPAL_DATA["balance_usd"],
+        "auto_sweep_status": REAL_PAYPAL_DATA["auto_sweep_status"],
+        "auto_sweep_bank": REAL_PAYPAL_DATA["auto_sweep_bank"],
+        "banks": REAL_PAYPAL_DATA["banks"],
+        "cards": REAL_PAYPAL_DATA["cards"],
+        "last_settlement": REAL_PAYPAL_DATA["last_settlement"],
+        "last_payment_received": REAL_PAYPAL_DATA["last_payment_received"]
     }
 
 

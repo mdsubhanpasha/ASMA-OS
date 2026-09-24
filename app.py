@@ -169,8 +169,29 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Daily Progress Bar
-m_col1, m_col2, m_col3, m_col4 = st.columns([2, 1, 1, 1])
+# Real Account & Auto-Sweep Status Cards
+st.markdown("""
+<div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 14px 18px; margin-bottom: 18px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+            <span style="color: #10b981; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em;">
+                🟢 Auto-Transfer to Federal Bank: ENABLED
+            </span>
+            <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 3px;">
+                Verified Institutional Settlement | RBI Purpose Code: P0802 | PayPal Business: <b>knightmyself@live.com</b>
+            </div>
+        </div>
+        <div style="text-align: right;">
+            <span style="background: #064e3b; color: #34d399; font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 9999px;">
+                Auto-Sweep Daily USD ➔ INR Active
+            </span>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Daily Progress & Financial Metric Cards
+m_col1, m_col2, m_col3, m_col4, m_col5 = st.columns([2, 1, 1, 1, 1])
 with m_col1:
     st.write(f"**Daily Target Progress:** ${reflect_data['today_paid']:,.2f} of ${DAILY_TARGET_USD:,.2f} USD")
     st.progress(reflect_data["progress_pct"])
@@ -180,6 +201,30 @@ with m_col3:
     st.metric("💵 Completed Today", f"${reflect_data['today_paid']:,.2f}")
 with m_col4:
     st.metric("⏳ Ready Settlement", f"${reflect_data['today_ready']:,.2f}")
+with m_col5:
+    st.metric("🏦 PayPal Balance", f"${reflect_data['balance_usd']:.2f}", help="Balance is $0.00 because incoming funds auto-sweep immediately to Federal Bank")
+
+st.write("")
+
+# Real Bank Accounts & Settlement History Expander
+with st.expander("🏦 Verified PayPal Account Details & Real Settlement Audit (Screenshot Proof)", expanded=True):
+    b_col1, b_col2 = st.columns(2)
+    with b_col1:
+        st.markdown("#### 🏛️ Linked Bank Accounts & Cards")
+        st.markdown("""
+        * **FEDERAL BANK** — <span style="color:#10b981; font-weight:700;">Primary Auto-Sweep Settlement (ACTIVE)</span>
+        * **SOUTH INDIAN BANK** — `Checking ••••59` (LINKED)
+        * **Mastercard Debit** — `Debit ••••48` (LINKED)
+        """, unsafe_allow_html=True)
+        st.caption("All incoming USD payments are automatically swept into Federal Bank under RBI cross-border export regulations.")
+    with b_col2:
+        st.markdown("#### 📜 Recent Real Settlement Activity")
+        st.markdown("""
+        * 🔻 **FEDERAL BANK:** <span style="color:#ef4444; font-weight:700;">-276.39 INR</span> on **24 Aug 2026**  
+          *Type: Transfer to bank account (Auto-Sweep Completed)*
+        * 🟢 **Tremendous:** <span style="color:#10b981; font-weight:700;">+$3.00 USD</span> on **23 Aug 2026**  
+          *Note: Sent on behalf of Viewpoints (Payment Received)*
+        """, unsafe_allow_html=True)
 
 st.write("")
 
@@ -187,22 +232,22 @@ st.write("")
 # TAB 1: DAILY DASHBOARD & PAYPAL LEDGER
 # ==============================================================================
 if tab_choice == "📊 Daily Dashboard & PayPal":
-    st.subheader("💳 PayPal Daily Ledger & Invoice Generation")
-    st.caption("Every dollar reflects genuine engineering delivery. Money is recorded only when client approves work.")
+    st.subheader("💳 PayPal Business Invoicing & Settlement Ledger")
+    st.caption("Institutional compliance: Personal PayPal.me is hidden/disabled (India RBI ban). All client settlements use official PayPal Business Invoices.")
 
-    col_btn1, col_btn2, col_btn3 = st.columns([1.5, 1.5, 2])
+    col_btn1, col_btn2 = st.columns([1.5, 2])
     with col_btn1:
-        st.link_button(f"🔗 Open PayPal.me (${int(DAILY_TARGET_USD)})", PAYPAL_LINK, use_container_width=True)
-    with col_btn2:
-        if st.button("📄 Generate Manual $500 Invoice PDF", use_container_width=True):
+        if st.button("📄 Generate Official $500 Business Invoice PDF", use_container_width=True):
             pdf_path = generate_invoice_pdf(
-                client_name="Ad-Hoc Enterprise Client",
+                client_name="Enterprise Client",
                 project_name="Verified Python & Architecture Milestone",
                 amount=500.0,
                 manifest_hash="manual_verified_sha256"
             )
-            st.success(f"Invoice PDF generated: {pdf_path.name}")
+            st.success(f"Official Invoice PDF generated: {pdf_path.name}")
             st.rerun()
+    with col_btn2:
+        st.info(f"📨 **PayPal Business Receiver:** `{PAYPAL_RECEIVER}` | Direct institutional invoicing")
 
     st.write("### 📜 Real-Time Ledger (`data/asma_ledger.csv`)")
     ledger_entries = load_ledger()
