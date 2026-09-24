@@ -1,25 +1,25 @@
 # Project ASMA - Private Income OS 💎
 **Sole Author:** Md Subhan Pasha  
 **Dedicated with love to:** Asma (Beloved Wife)  
-**Goal:** Daily $500.00 USD to PayPal (`knightmyself@live.com`) with automated Federal Bank settlement.  
+**Goal:** Daily $500.00 USD to PayPal (`knightmyself@live.com`) with automated Preferred Bank / Any Bank settlement.  
 **Security Charter:** 100% Privacy | Local-First | AES-256 Vault | Zero Telemetry | Verifiable Engineering Worth  
 
 ---
 
 ## 🏛️ Real Verified Account State & Settlement Proof
 
-> **Auto-Transfer to Federal Bank: ENABLED** 🟢  
-> *PayPal Balance sits at **$0.00 USD** because all incoming USD remittances auto-sweep immediately to Federal Bank under RBI compliance.*
+> **Auto-Transfer to Preferred Bank / Any Bank: ENABLED** 🟢  
+> *PayPal Balance sits at **$0.00 USD** because all incoming USD remittances auto-sweep immediately to Preferred Bank / Any Bank under RBI compliance.*
 
 ### 🏦 Linked Financial Institutions:
-* **FEDERAL BANK:** Primary Auto-Sweep Settlement Bank (**ACTIVE**)
+* **Preferred Bank / Any Bank:** Primary Auto-Sweep Settlement Bank (**ACTIVE**)
 * **SOUTH INDIAN BANK:** `Checking ••••59` (LINKED)
 * **Mastercard Debit:** `Debit ••••48` (LINKED)
 
 ### 📜 Real Verified Settlement Audit Trail:
 | Date | Counterparty / Destination | Amount | Transaction Description & Purpose |
 | :--- | :--- | :--- | :--- |
-| **24 Aug 2026** | **FEDERAL BANK** | **-276.39 INR** | **Transfer to bank account** *(Auto-Sweep Completed)* |
+| **24 Aug 2026** | **Preferred Bank / Any Bank** | **-276.39 INR** | **Transfer to bank account** *(Auto-Sweep Completed)* |
 | **23 Aug 2026** | **Tremendous** | **+$3.00 USD** | Payment Received — *"Sent on behalf of Viewpoints"* |
 | **Daily Target** | **Enterprise Milestone** | **+$500.00 USD** | Software Architecture Delivery (`P0802` Software Export) |
 
@@ -34,7 +34,7 @@ Under Reserve Bank of India (RBI) cross-border payment regulations, personal pee
 Project ASMA circumvents this restriction through an institutional-grade, RBI-compliant architecture:
 1. **Personal PayPal.me Hidden/Disabled:** Personal P2P payment requests are completely eliminated from the OS to protect account integrity.
 2. **Official PayPal Business Invoices:** Replaces personal P2P requests with formal PayPal Business Invoicing (`knightmyself@live.com`) tied to software engineering milestones.
-3. **Linked Federal Bank Auto-Settlement:** PayPal Business account is linked directly to **Federal Bank** (India), enabling daily automatic transfer/settlement of foreign inward remittances in compliance with RBI guidelines (Purpose Code: `P0802 - Software Consultancy & Implementation`).
+3. **Linked Preferred Bank / Any Bank Auto-Settlement:** PayPal Business account is linked directly to **Preferred Bank / Any Bank** (India), enabling daily automatic transfer/settlement of foreign inward remittances in compliance with RBI guidelines (Purpose Code: `P0802 - Software Consultancy & Implementation`).
 4. **Foreign Inward Remittance Statement (FIRS / FIRC):** Every $500 milestone invoice includes a SHA-256 cryptographic manifest proving genuine export of software services.
 5. **Instant PDF Invoicing:** Automatic generation of professional, itemized PDF invoices (`data/invoices/`) ready for dispatch to global enterprise clients.
 
@@ -72,13 +72,13 @@ Project ASMA circumvents this restriction through an institutional-grade, RBI-co
 A state-of-the-art Streamlit dashboard built for local executive control:
 - **Title:** `ASMA OS - Private - For Asma`
 - **Sole Authorship:** `Md Subhan Pasha`
-- **Auto-Transfer Status:** `🟢 Auto-Transfer to Federal Bank: ENABLED` prominently displayed.
-- **PayPal Balance:** `$0.00 USD` (Auto-sweep to Federal Bank verified active).
-- **Verified Settlement Audit:** Real-time summary of recent bank transfers (-276.39 INR to Federal Bank) and receipts (+$3.00 USD from Tremendous).
+- **Auto-Transfer Status:** `🟢 Auto-Transfer to Preferred Bank / Any Bank: ENABLED` prominently displayed.
+- **PayPal Balance:** `$0.00 USD` (Auto-sweep to Preferred Bank / Any Bank verified active).
+- **Verified Settlement Audit:** Real-time summary of recent bank transfers (-276.39 INR to Preferred Bank / Any Bank) and receipts (+$3.00 USD from Tremendous).
 - **Daily $500 Progress Tracker:** Visual progress bar, daily target status, and metrics cards.
 - **1-Click Proposal Outbox:** Approve or dispatch Groq Llama 3.3 70B email drafts.
 - **Demo Explorer:** Inspect mock prototypes, run unit tests, and render Mermaid architecture diagrams.
-- **Privacy Badge:** `Local-First | AES-256 | Zero Telemetry | Sole Authorship: Md Subhan Pasha | Federal Bank Linked | Fixed India PayPal.me Ban`.
+- **Privacy Badge:** `Local-First | AES-256 | Zero Telemetry | Sole Authorship: Md Subhan Pasha | Preferred Bank / Any Bank Linked | Fixed India PayPal.me Ban`.
 
 ---
 
@@ -103,7 +103,7 @@ GROQ_API_KEY=your_groq_api_key_here  # Optional: Free from console.groq.com
 
 ### 4. Run Operations via the Unified CLI (`cli.py`)
 ```bash
-# Check daily reflect status and Federal Bank auto-transfer status:
+# Check daily reflect status and Preferred Bank / Any Bank auto-transfer status:
 python cli.py status
 
 # Scan for new $500+ milestone opportunities:

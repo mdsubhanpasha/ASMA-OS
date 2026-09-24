@@ -44,16 +44,16 @@ DAILY_TARGET_USD = float(os.getenv("PAYPAL_DAILY_TARGET_USD", "500.0"))
 REAL_PAYPAL_DATA = {
     "balance_usd": 0.00,
     "auto_sweep_status": "ENABLED",
-    "auto_sweep_bank": "FEDERAL BANK",
+    "auto_sweep_bank": "Preferred Bank / Any Bank",
     "banks": [
-        {"name": "FEDERAL BANK", "role": "Primary Auto-Sweep Settlement", "status": "ACTIVE"},
+        {"name": "Preferred Bank / Any Bank", "role": "Primary Auto-Sweep Settlement", "status": "ACTIVE"},
         {"name": "SOUTH INDIAN BANK", "role": "Checking ****59", "status": "LINKED"}
     ],
     "cards": [
         {"name": "Mastercard Debit", "role": "Debit ****48", "status": "LINKED"}
     ],
     "last_settlement": {
-        "bank": "FEDERAL BANK",
+        "bank": "Preferred Bank / Any Bank",
         "amount_inr": "-276.39 INR",
         "date": "24 Aug 2026",
         "description": "Transfer to bank account",
@@ -267,10 +267,10 @@ def generate_invoice_pdf(
 
     pay_text = f"""<b>PayPal Business Receiver:</b> <font color='#00457C'><b>{PAYPAL_RECEIVER}</b></font><br/>
     <b>Settlement Type:</b> Official PayPal Business Invoice (Fixed India PayPal.me Ban - RBI Inward Remittance Compliant)<br/>
-    <b>Linked Auto-Sweep Bank:</b> Federal Bank (India) | <b>Purpose Code:</b> P0802 (Software Consultancy & Tech Delivery)<br/>
-    <b>Auto-Transfer to Federal Bank:</b> <font color='#16a34a'><b>ENABLED (Active Daily Settlement)</b></font><br/>
+    <b>Linked Auto-Sweep Bank:</b> Preferred Bank / Any Bank (India) | <b>Purpose Code:</b> P0802 (Software Consultancy & Tech Delivery)<br/>
+    <b>Auto-Transfer to Preferred Bank / Any Bank:</b> <font color='#16a34a'><b>ENABLED (Active Daily Settlement)</b></font><br/>
     <b>Payment Reference:</b> {inv_num} - {client_name} (${amount:,.2f} USD)<br/>
-    <i>Note: Work deliverables are backed by SHA-256 verifiable manifest. Personal PayPal.me links are disabled under India regulations. Funds auto-settle to Federal Bank upon client milestone signoff.</i>"""
+    <i>Note: Work deliverables are backed by SHA-256 verifiable manifest. Personal PayPal.me links are disabled under India regulations. Funds auto-settle to Preferred Bank / Any Bank upon client milestone signoff.</i>"""
 
     pay_data = [[Paragraph(pay_text, cell_normal)]]
     pay_table = Table(pay_data, colWidths=[540])
@@ -286,7 +286,7 @@ def generate_invoice_pdf(
     elements.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#94a3b8"), spaceAfter=10))
     footer_text = (
         "<b>ASMA-OS Institutional Charter:</b> Dedicated to Asma | Sole Author: Md Subhan Pasha | "
-        "Federal Bank Linked Auto-Settlement | PayPal Business Invoice (Fixed India PayPal.me Ban) | "
+        "Preferred Bank / Any Bank Linked Auto-Settlement | PayPal Business Invoice (Fixed India PayPal.me Ban) | "
         "Local-First AES-256 | Zero Telemetry"
     )
     elements.append(Paragraph(footer_text, subtitle_style))

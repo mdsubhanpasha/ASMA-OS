@@ -127,7 +127,7 @@ with st.sidebar:
     st.write(f"🛡️ **AES-256 Vault:** Active (GCM Mode)")
     st.write(f"🚫 **Telemetry:** Strictly 0 (Zero Cloud)")
     st.write(f"💳 **PayPal:** `{PAYPAL_RECEIVER}`")
-    st.write(f"🏦 **Bank Auto-Sweep:** Federal Bank (India)")
+    st.write(f"🏦 **Bank Auto-Sweep:** Preferred Bank / Any Bank (India)")
     st.write(f"🇮🇳 **Compliance:** Fixed India PayPal.me Ban")
     st.divider()
 
@@ -154,7 +154,7 @@ with st.sidebar:
 
 # Header & Privacy Badge
 st.markdown('<div class="main-header">ASMA OS - Private - For Asma</div>', unsafe_allow_html=True)
-st.markdown('<div class="privacy-badge">🔒 Local-First | AES-256 | Zero Telemetry | Sole Authorship: Md Subhan Pasha | Federal Bank Linked | Fixed India PayPal.me Ban</div>', unsafe_allow_html=True)
+st.markdown('<div class="privacy-badge">🔒 Local-First | AES-256 | Zero Telemetry | Sole Authorship: Md Subhan Pasha | Preferred Bank / Any Bank Linked | Fixed India PayPal.me Ban</div>', unsafe_allow_html=True)
 
 # Fetch Daily Reflect
 reflect_data = get_daily_reflect()
@@ -164,7 +164,7 @@ st.markdown(f"""
 <div class="reflect-banner">
     <div class="reflect-title">⚡ {reflect_data['reflect_string']}</div>
     <div class="reflect-detail">
-        Daily Goal: <b>${int(DAILY_TARGET_USD):,} USD</b> | Receiver: <b>{PAYPAL_RECEIVER}</b> | Bank: <b>Federal Bank (India)</b> | Genuine Work Verified via SHA-256
+        Daily Goal: <b>${int(DAILY_TARGET_USD):,} USD</b> | Receiver: <b>{PAYPAL_RECEIVER}</b> | Bank: <b>Preferred Bank / Any Bank (India)</b> | Genuine Work Verified via SHA-256
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -175,7 +175,7 @@ st.markdown("""
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
         <div>
             <span style="color: #10b981; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em;">
-                🟢 Auto-Transfer to Federal Bank: ENABLED
+                🟢 Auto-Transfer to Preferred Bank / Any Bank: ENABLED
             </span>
             <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 3px;">
                 Verified Institutional Settlement | RBI Purpose Code: P0802 | PayPal Business: <b>knightmyself@live.com</b>
@@ -202,7 +202,7 @@ with m_col3:
 with m_col4:
     st.metric("⏳ Ready Settlement", f"${reflect_data['today_ready']:,.2f}")
 with m_col5:
-    st.metric("🏦 PayPal Balance", f"${reflect_data['balance_usd']:.2f}", help="Balance is $0.00 because incoming funds auto-sweep immediately to Federal Bank")
+    st.metric("🏦 PayPal Balance", f"${reflect_data['balance_usd']:.2f}", help="Balance is $0.00 because incoming funds auto-sweep immediately to Preferred Bank / Any Bank")
 
 st.write("")
 
@@ -212,15 +212,15 @@ with st.expander("🏦 Verified PayPal Account Details & Real Settlement Audit (
     with b_col1:
         st.markdown("#### 🏛️ Linked Bank Accounts & Cards")
         st.markdown("""
-        * **FEDERAL BANK** — <span style="color:#10b981; font-weight:700;">Primary Auto-Sweep Settlement (ACTIVE)</span>
+        * **Preferred Bank / Any Bank** — <span style="color:#10b981; font-weight:700;">Primary Auto-Sweep Settlement (ACTIVE)</span>
         * **SOUTH INDIAN BANK** — `Checking ••••59` (LINKED)
         * **Mastercard Debit** — `Debit ••••48` (LINKED)
         """, unsafe_allow_html=True)
-        st.caption("All incoming USD payments are automatically swept into Federal Bank under RBI cross-border export regulations.")
+        st.caption("All incoming USD payments are automatically swept into Preferred Bank / Any Bank under RBI cross-border export regulations.")
     with b_col2:
         st.markdown("#### 📜 Recent Real Settlement Activity")
         st.markdown("""
-        * 🔻 **FEDERAL BANK:** <span style="color:#ef4444; font-weight:700;">-276.39 INR</span> on **24 Aug 2026**  
+        * 🔻 **Preferred Bank / Any Bank:** <span style="color:#ef4444; font-weight:700;">-276.39 INR</span> on **24 Aug 2026**  
           *Type: Transfer to bank account (Auto-Sweep Completed)*
         * 🟢 **Tremendous:** <span style="color:#10b981; font-weight:700;">+$3.00 USD</span> on **23 Aug 2026**  
           *Note: Sent on behalf of Viewpoints (Payment Received)*
