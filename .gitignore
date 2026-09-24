@@ -1,0 +1,48 @@
+# ASMA-OS: 100% Privacy & Zero Telemetry
+# Never commit sensitive secrets, client data, or financial ledgers
+
+# Environment secrets
+.env
+.env.local
+*.key
+
+# Local Data Vault & Deliverables
+data/
+data/asma_vault.db
+data/demos/
+data/deliverables/
+data/invoices/
+data/asma_ledger.csv
+data/pending_emails.json
+data/vault/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
